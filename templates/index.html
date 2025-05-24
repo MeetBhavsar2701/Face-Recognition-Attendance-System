@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Face Recognition Attendance System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
+  <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .hover-bounce:hover {
+      transform: translateY(-2px);
+      transition: transform 0.2s;
+    }
+    
+  </style>
+</head>
+<body class="bg-gradient-to-r from-green-100 to-lime-100 min-h-screen flex items-center justify-center px-4">
+
+  <div class="bg-white shadow-2xl rounded-3xl p-8 sm:p-10 w-full max-w-md text-center fade-in-up">
+    
+    <!-- Header Image -->
+        <img src="static/face-scanner.gif" alt="Face Recognition Icon"
+        class="w-24 mx-auto mb-4 animate-pulse" />
+
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Face Recognition Attendance</h1>
+
+    <form action="/take_attendance" method="post" class="mb-4">
+      <button type="submit"
+        class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-xl text-lg transition duration-200 hover-bounce">
+        <i class="fas fa-camera"></i> Take Attendance
+        </button>
+    </form>
+
+    <form action="/view_analytics" method="get" class="mb-4">
+      <button type="submit"
+        class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-xl text-lg transition duration-200 hover-bounce">
+        <i class="fas fa-chart-bar"></i> View Analytics
+      </button>
+    </form>
+
+  </div>
+
+</body>
+</html>

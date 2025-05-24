@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analytics Result</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector("#card").classList.remove("opacity-0", "scale-95");
+    });
+  </script>
+</head>
+<body class="bg-gradient-to-r from-green-100 to-lime-100 min-h-screen flex items-center justify-center p-4">
+
+  <div id="card" class="bg-white shadow-2xl rounded-3xl p-8 w-full max-w-3xl text-center transform transition-all duration-700 opacity-0 scale-95">
+    
+    <!-- Title -->
+    <h1 class="text-3xl font-extrabold text-gray-800 mb-4"> <i class="fa-solid fa-chart-column"></i> Attendance Analytics</h1>
+    <p class="text-gray-500 mb-6">Here is the chart generated based on your input.</p>
+
+    <!-- Attendance Chart Image -->
+    <img 
+      src="{{ url_for('static', filename=image.split('static/')[-1]) }}" 
+      alt="Attendance Chart"
+      class="rounded-xl shadow-xl w-full max-h-[700px] object-contain mb-6 border border-gray-200"
+    />
+
+    <!-- Action Buttons -->
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="/view_analytics" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-5 rounded-xl shadow-md transition">
+        <i class="fa-solid fa-rotate-right"></i> Analyze Again
+      </a>
+      <button class="flex flex-wrap justify-center gap-4">
+      <a href="/" class="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-5 rounded-xl transition duration-300 shadow-lg">
+        <i class="fa-solid fa-house"></i> Home</a>
+    </button>
+    </div>
+  </div>
+
+</body>
+</html>

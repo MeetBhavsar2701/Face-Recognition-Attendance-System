@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Select Batch & Subject</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector("#card").classList.remove("opacity-0", "translate-y-10");
+    });
+  </script>
+</head>
+<body class="bg-gradient-to-r from-green-100 to-lime-100 flex items-center justify-center min-h-screen p-4">
+
+  <div id="card" class="flex flex-col lg:flex-row items-center gap-8 bg-white rounded-3xl shadow-2xl p-8 w-full max-w-4xl transform transition-all duration-700 opacity-0 translate-y-10">
+
+    <!-- Left Illustration -->
+    <div class="w-full lg:w-1/2 flex justify-center">
+      <img src="https://cdn-icons-png.flaticon.com/512/4202/4202843.png" alt="Attendance Icon" class="w-64 h-64 animate-bounce-slow" />
+    </div>
+
+    <!-- Right Form -->
+    <form action="/submit_attendance" method="post" class="w-full lg:w-1/2 space-y-6">
+      <h2 class="text-3xl font-bold text-center text-gray-800"><i class="fa-solid fa-clipboard"></i>  Select Batch & Subject</h2>
+
+      <label class="block">
+        <span class="text-gray-700 font-medium"><i class="fa-solid fa-users"></i>  Batch</span>
+        <select name="batch" required class="block w-full mt-1 px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none">
+          <option value="">-- Select Batch --</option>
+          {% for batch in batches %}
+          <option value="{{ batch }}">{{ batch }}</option>
+          {% endfor %}
+        </select>
+      </label>
+
+      <label class="block">
+        <span class="text-gray-700 font-medium"><i class="fa-solid fa-book"></i> Subject</span>
+        <select name="subject" required class="block w-full mt-1 px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none">
+          <option value="">-- Select Subject --</option>
+          {% for subject in subjects %}
+          <option value="{{ subject }}">{{ subject }}</option>
+          {% endfor %}
+        </select>
+      </label>
+
+      <button type="submit"
+        class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 rounded-xl shadow-md transition duration-300">
+        <i class="fa-solid fa-circle-check"></i> Take Attendance
+      </button>
+
+      <button class="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 rounded-xl shadow-md transition duration-300">
+         <i class="fa-solid fa-house"></i> Back to Home
+      </button>
+    </form>
+  </div>
+
+  <!-- Animation CSS -->
+  <style>
+    .animate-bounce-slow {
+      animation: bounce 3s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+  </style>
+</body>
+</html>
