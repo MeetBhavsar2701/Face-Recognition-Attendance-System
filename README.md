@@ -2,16 +2,6 @@
 
 An AI-powered smart attendance system that uses **facial recognition** and **blink detection** to mark attendance, backed with **real-time analytics** and a clean web interface.
 
----
-
-## 🎥 Demo
-
-![Thumbnail](screenshots/thumbnail.png)
-
-> *(You can also include a link to your screen recording here or upload a video/GIF to the repo.)*
-
----
-
 ## 🚀 Features
 
 - 👁️ **Blink-based verification** – ensures presence & avoids spoofing.
